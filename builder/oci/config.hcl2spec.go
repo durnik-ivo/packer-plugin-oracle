@@ -76,6 +76,7 @@ type FlatConfig struct {
 	Region                    *string                `mapstructure:"region" cty:"region" hcl:"region"`
 	Fingerprint               *string                `mapstructure:"fingerprint" cty:"fingerprint" hcl:"fingerprint"`
 	KeyFile                   *string                `mapstructure:"key_file" cty:"key_file" hcl:"key_file"`
+	Key                       *string                `mapstructure:"key" cty:"key" hcl:"key"`
 	PassPhrase                *string                `mapstructure:"pass_phrase" cty:"pass_phrase" hcl:"pass_phrase"`
 	UsePrivateIP              *bool                  `mapstructure:"use_private_ip" cty:"use_private_ip" hcl:"use_private_ip"`
 	SecurityTokenFilePath     *string                `mapstructure:"security_token_file" cty:"security_token_file" hcl:"security_token_file"`
@@ -180,6 +181,7 @@ func (*FlatConfig) HCL2Spec() map[string]hcldec.Spec {
 		"region":                       &hcldec.AttrSpec{Name: "region", Type: cty.String, Required: false},
 		"fingerprint":                  &hcldec.AttrSpec{Name: "fingerprint", Type: cty.String, Required: false},
 		"key_file":                     &hcldec.AttrSpec{Name: "key_file", Type: cty.String, Required: false},
+		"key":                          &hcldec.AttrSpec{Name: "key", Type: cty.String, Required: false},
 		"pass_phrase":                  &hcldec.AttrSpec{Name: "pass_phrase", Type: cty.String, Required: false},
 		"use_private_ip":               &hcldec.AttrSpec{Name: "use_private_ip", Type: cty.Bool, Required: false},
 		"security_token_file":          &hcldec.AttrSpec{Name: "security_token_file", Type: cty.String, Required: false},

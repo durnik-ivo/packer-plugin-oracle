@@ -92,6 +92,7 @@ type Config struct {
 	Region       string `mapstructure:"region"`
 	Fingerprint  string `mapstructure:"fingerprint"`
 	KeyFile      string `mapstructure:"key_file"`
+	Key          string `mapstructure:"key"`
 	PassPhrase   string `mapstructure:"pass_phrase"`
 	UsePrivateIP bool   `mapstructure:"use_private_ip"`
 
@@ -257,6 +258,9 @@ func (c *Config) Prepare(raws ...interface{}) error {
 			if err != nil {
 				return err
 			}
+		}
+		if c.Key != "" {
+			keyContent = []byte(c.Key)
 		}
 
 		fileProvider, _ := ocicommon.ConfigurationProviderFromFileWithProfile(c.AccessCfgFile, c.AccessCfgFileAccount, c.PassPhrase)
