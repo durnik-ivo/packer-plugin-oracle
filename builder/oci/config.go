@@ -214,6 +214,9 @@ func (c *Config) Prepare(raws ...interface{}) error {
 		if c.KeyFile != "" {
 			errs = packersdk.MultiErrorAppend(errs, fmt.Errorf("'key_file'"+message))
 		}
+		if c.Key != "" {
+			errs = packersdk.MultiErrorAppend(errs, fmt.Errorf("'key'"+message))
+		}
 		if c.PassPhrase != "" {
 			errs = packersdk.MultiErrorAppend(errs, fmt.Errorf("'pass_phrase'"+message))
 		}
