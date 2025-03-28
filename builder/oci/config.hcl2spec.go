@@ -75,8 +75,8 @@ type FlatConfig struct {
 	TenancyID                 *string                `mapstructure:"tenancy_ocid" cty:"tenancy_ocid" hcl:"tenancy_ocid"`
 	Region                    *string                `mapstructure:"region" cty:"region" hcl:"region"`
 	Fingerprint               *string                `mapstructure:"fingerprint" cty:"fingerprint" hcl:"fingerprint"`
-	KeyFile                   *string                `mapstructure:"key_file" cty:"key_file" hcl:"key_file"`
 	Key                       *string                `mapstructure:"key" cty:"key" hcl:"key"`
+	KeyFile                   *string                `mapstructure:"key_file" cty:"key_file" hcl:"key_file"`
 	PassPhrase                *string                `mapstructure:"pass_phrase" cty:"pass_phrase" hcl:"pass_phrase"`
 	UsePrivateIP              *bool                  `mapstructure:"use_private_ip" cty:"use_private_ip" hcl:"use_private_ip"`
 	SecurityTokenFilePath     *string                `mapstructure:"security_token_file" cty:"security_token_file" hcl:"security_token_file"`

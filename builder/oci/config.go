@@ -91,8 +91,8 @@ type Config struct {
 	TenancyID    string `mapstructure:"tenancy_ocid"`
 	Region       string `mapstructure:"region"`
 	Fingerprint  string `mapstructure:"fingerprint"`
-	KeyFile      string `mapstructure:"key_file"`
 	Key          string `mapstructure:"key"`
+	KeyFile      string `mapstructure:"key_file"`
 	PassPhrase   string `mapstructure:"pass_phrase"`
 	UsePrivateIP bool   `mapstructure:"use_private_ip"`
 
@@ -211,11 +211,11 @@ func (c *Config) Prepare(raws ...interface{}) error {
 		if c.Fingerprint != "" {
 			errs = packersdk.MultiErrorAppend(errs, fmt.Errorf("'fingerprint'"+message))
 		}
-		if c.KeyFile != "" {
-			errs = packersdk.MultiErrorAppend(errs, fmt.Errorf("'key_file'"+message))
-		}
 		if c.Key != "" {
 			errs = packersdk.MultiErrorAppend(errs, fmt.Errorf("'key'"+message))
+		}
+		if c.KeyFile != "" {
+			errs = packersdk.MultiErrorAppend(errs, fmt.Errorf("'key_file'"+message))
 		}
 		if c.PassPhrase != "" {
 			errs = packersdk.MultiErrorAppend(errs, fmt.Errorf("'pass_phrase'"+message))
