@@ -249,6 +249,7 @@ func (c *Config) Prepare(raws ...interface{}) error {
 			c.AccessCfgFileAccount = "DEFAULT"
 		}
 
+		// Read API signing key
 		var keyContent []byte
 		if c.KeyFile != "" {
 			path, err := pathing.ExpandUser(c.KeyFile)
@@ -266,6 +267,7 @@ func (c *Config) Prepare(raws ...interface{}) error {
 			keyContent = []byte(c.Key)
 		}
 
+		// Providers
 		fileProvider, _ := ocicommon.ConfigurationProviderFromFileWithProfile(c.AccessCfgFile, c.AccessCfgFileAccount, c.PassPhrase)
 		if c.Region == "" {
 			var region string
